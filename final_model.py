@@ -10,7 +10,7 @@ model = load_recommender('../../../mrec/PATH_TO_FINAL_MODEL')
 
 next_usr_num = 382,716
 
-# 1) need to train model with ALL the data (not test) # save as paths to put above
+# 1) need to train model with ALL the data (not just train) # save as paths to put above
 
 # 2) need to save the label encoder classes for that model
 
