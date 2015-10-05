@@ -47,19 +47,6 @@ model = SLIM()
 recs = model.batch_recommend_items(dataset.X)
 
 
-# Test against randomly choosing a game to recommend
-
-rand_success = 0
-items = train['item'].values
-for i in range(1, 353028):
-    rand_games = random.sample(items, 5)
-    test_games = binary_test[binary_test['user'] == i]['item'].values
-    for rand_game in rand_games:
-        if rand_game in test_games:
-            rand_success += 1
-    if i % 1000 == 0:
-        print i
-
 
 
 
