@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('../data/usersforPCA.csv')
 data = data.set_index('user')
 
-def my_pca(data):
+def make_clusters(data):
        # scale the data to prepare for pca
        scale = StandardScaler()
        scale.fit(data)
