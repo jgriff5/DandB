@@ -28,6 +28,7 @@ My final model has a precision @ 5 score of 19%. This beats regular item-item co
 CODE WALKTHROUGH
 
 For my user segmentation the process is as follows:
+
 1)	First I do feature engineering in add_features.py
 2)	Then in cluster.py I reduce the dimensions to 4 principle components, cluster the users, and map the clusters back to the original data to analyze what makes them distinct. 
 3)	games.py cleans my original game meta data and is used for exploratory analysis of game distributions. 
