@@ -7,7 +7,7 @@ from sklearn import preprocessing
 from mrec.item_similarity import slim
 from mrec import load_fast_sparse_matrix
 
-# Getting data
+# Getting data and dropping items that aren't games
 data = pd.read_csv('../data/sframeformat.csv')
 data.drop('Unnamed: 0', axis = 1, inplace = True)
 data.columns = ['user', 'item', 'score']
