@@ -8,24 +8,24 @@ MOTIVATION
 
 Arcade Games are large portion of the profit for a popular restaurant / arcade game chain. I want to increase their profit by getting customers to play more games, stay longer, and return more frequently. To do this, I gain insights into peoples behaviors by segmenting them into groups based on the way they play and create a recommender that can be implemented in various and exciting ways. 
 
-First Steps
+FIRST STEPS
 
 To get started, I obtained a week worth of data from all of the stores of a certain company. The data was divided between 7 files so I aggregated them into one data set making slight changes to ensure each card id was unique since it is hard to ensure a card will always stay with the same person. 
 
-Prepping for a recommender
+PREPPING FOR A RECOMMENDER
 
 My data did not contain explicit user ratings for games, but instead I had counts of how many times a user played each game. I found the best way to use this implicit feedback to get the highest precision recommender was to turn this into binary data: 1 if they played the game, 0 otherwise. I then had a user (~380k) by game (330) binary matrix. 
 
-The recommender model
+THE RECOMMENDER MODEL
 
 My final model is a SLIM (Sparse Linear Method) recommender. This is predicts topN recommendations by aggregating from user purchase/rating profiles. To learn more see http://www-users.cs.umn.edu/~xning/papers/Ning2011c.pdf  
 I used the python package mrec to implement this. 
 
-Results
+RESULTS
 
 My final model has a precision @ 5 score of 19%. This beats regular item-item collaborative filtering (12%) and just randomly choosing games (5%). 
 
-Code Walkthrough
+CODE WALKTHROUGH
 
 For my user segmentation the process is as follows:
 1)	First I do feature engineering in add_features.py
