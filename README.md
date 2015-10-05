@@ -41,4 +41,4 @@ For the recommender the process is as follows:
 
 1)	I first get the data in the general format I want (user, item, play_count) with create_matrix.py                           
 2)	In create_model.py, I change the format  (name the columns specific names, and transform all items and users into integers) to prepare for the specific model I will use and change the play counts to 1 or 0 based on whether they have played the game or not                                                                                                                            
-3) final_model.py is a base code for when the recommender will be implemented. This uses in_store_dict to check if a recommended game is in the store the user visited since not all games are in all stores.                    
+3) final_model.py is a base code for when the recommender will be implemented. This uses in_store_dict to check if a recommended game is in the store the user visited since not all games are in all stores yet the recommender is trained on all games so as to work in any store.                    
