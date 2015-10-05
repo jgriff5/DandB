@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from statsmodels.tools.tools import categorical
 from sklearn import preprocessing
+from mrec.item_similarity import slim
+from mrec import load_fast_sparse_matrix
 
 # Getting data
 data = pd.read_csv('../data/sframeformat.csv')
@@ -11,6 +13,7 @@ data.drop('Unnamed: 0', axis = 1, inplace = True)
 data.columns = ['user', 'item', 'score']
 data = data.drop(data[data['item'] == 'CHANGER'].index)
 
+# only using people who have played >= 10 games
 counts = data.groupby('user').count().sort('item')
 indices = counts[counts['item'] < 10].index
 data = data.set_index('user')
@@ -38,10 +41,10 @@ binary_test = binary.sort('user')[1::2]
 binary_train.to_csv('../ge10/train.tsv', sep='\t', header = False, index = False)
 binary_test.to_csv('../ge10/test.tsv', sep='\t', header = False, index = False)
 
-# evaluating
-# games = pd.read_csv('../data/games_info.csv')
-# games = games[['Game Master Descr', 'Play Type']]
-# usrs = pd.read_csv('data/clustered_users.csv')[['user', 'label']]
+dataset = load_fast_sparse_matrix("../ge10/train.tsv")
+num_users,num_items = dataset.shape
+model = SLIM()
+recs = model.batch_recommend_items(dataset.X)
 
 
 # Test against randomly choosing a game to recommend
