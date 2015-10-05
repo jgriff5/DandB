@@ -12,6 +12,10 @@ FIRST STEPS
 
 To get started, I obtained a week worth of data from all of the stores of a certain company. The data was divided between 7 files so I aggregated them into one data set making slight changes to ensure each card id was unique since it is hard to ensure a card will always stay with the same person. 
 
+MAKING CLUSTERS
+
+First I added engineered features such as number of games a user plays, average times a user plays a game, percent of time spent at each “genre” of game, etc. I then performed principle component analysis to cut this down from 23 total features to 4 features to beat the curse of dimensionality. I then use kmeans to find the clusters. I looked at the sum-squared error of distance between users to the cluster center to determine how many clusters were best. I chose 7 clusters.  Afterwards I looked at the original 23 features with cluster labels added on to see if the clusters made sense in my original space and determine what defined each cluster. 
+
 PREPPING FOR A RECOMMENDER
 
 My data did not contain explicit user ratings for games, but instead I had counts of how many times a user played each game. I found the best way to use this implicit feedback to get the highest precision recommender was to turn this into binary data: 1 if they played the game, 0 otherwise. I then had a user (~380k) by game (330) binary matrix. 
