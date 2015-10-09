@@ -9,6 +9,8 @@ data = pd.read_csv('../data/usersforPCA.csv')
 data = data.set_index('user')
 
 def make_clusters(data):
+       '''uses pca to reduce features to 4 principle components, 
+       then creates 7 clusters'''
        # scale the data to prepare for pca
        scale = StandardScaler()
        scale.fit(data)
