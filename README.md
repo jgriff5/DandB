@@ -1,4 +1,4 @@
-This project is based upon confidential data. Thus, while on my machine I have folders for various types of files, here I will just be sharing the content of my “code” file and my presentation slides. 
+This project is based upon confidential data. Thus, while on my machine I have folders for various types of files, here I will just be sharing the content of my “code” file.
 
 DESCRIPTION
 
